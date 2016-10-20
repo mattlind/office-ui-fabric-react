@@ -51,7 +51,7 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
         imageInitials: '+' + numPersonasNotPictured,
         initialsColor: PersonaInitialsColor.black,
         personaName: this.props.personas.slice(numPersonasToShow).map((persona: IFacepilePersona, index: number) => {
-          return persona.personaName;
+          return persona.personaName + (persona.data ? ` [${persona.data}]` : '');
         }).join(', ')
       });
     }
