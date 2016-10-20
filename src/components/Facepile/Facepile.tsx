@@ -18,25 +18,12 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
     personas: []
   };
 
-  public refs: {
-    [key: string]: React.ReactInstance;
-    facepileMembers: HTMLElement;
-  };
-
   private FACEPILE_PERSONA_SIZE: number = 32;
-
-  // public componentWillReceiveProps(nextProps: IFacepileProps) {
-  //   if (nextProps.availableWidth) {
-  //     this.setState({
-  //       maxDisplayablePersonas: nextProps.maxDisplayablePersonas
-  //     });
-  //   }
-  // }
 
   public render(): JSX.Element {
     return (
       <div className='ms-Facepile'>
-        <div className='ms-Facepile-members' ref='facepileMembers'>
+        <div className='ms-Facepile-members'>
           {this.props.showAddButton ? this._getAddNewElement() : null}
           {
             this._getDisplayablePersonas(this.props.personas).map((persona: IFacepilePersona, index: number) => {
@@ -59,7 +46,7 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
         imageInitials: '+' + numPersonasNotPictured,
         initialsColor: PersonaInitialsColor.black,
         personaName: this.props.personas.slice(numPersonasToShow).map((persona: IFacepilePersona, index: number) => {
-          return persona.personaName;
+          return persona.personaName + (persona.data ? ` [${persona.data}]` : '');
         }).join(', ')
       });
     }
@@ -94,12 +81,12 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
   }
 
   private _getAddNewElement(): JSX.Element {
-    return <button
-      className={css('ms-Facepile-itemBtn', 'ms-Persona-initials', PERSONA_INITIALS_COLOR[this.props.addUserIconColor])}
-      key='addFace'
-      onMouseDown={this._onAddClick.bind(this)}>
-      <i className='ms-Icon msIcon ms-Icon--AddFriend' aria-hidden='true'></i>
-    </button>;
+    return  <button
+              className={css('ms-Facepile-itemBtn', 'ms-Persona-initials', PERSONA_INITIALS_COLOR[this.props.addUserIconColor])}
+              key='addFace'
+              onMouseDown={this._onAddClick.bind(this)}>
+              <i className='ms-Icon msIcon ms-Icon--AddFriend' aria-hidden='true'></i>
+            </button>;
   }
 
   private _getDisplayablePersonas(personas: IFacepilePersona[]): IFacepilePersona[] {
@@ -111,7 +98,7 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
     this._addNumberNotPictured(numPersonasToShow, hasPersonasNotPictured, numPersonasNotPictured, personasToShow);
 
     return personasToShow;
-  }s
+  }
 
   private _getPersonaControl(persona: IFacepilePersona): JSX.Element {
     let personalDetailsHidden: boolean = this.props.personas.length > 1;
