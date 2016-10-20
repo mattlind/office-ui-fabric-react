@@ -12,6 +12,9 @@ export interface IFacepileProps extends React.Props<Facepile> {
   /** Maximum number of personas to show */
   maxDisplayablePersonas?: number;
 
+  /** Maximum widthavailable to display in */
+  availableWidth?: number;
+
   /** Show add person button */
   showAddButton?: boolean;
 
