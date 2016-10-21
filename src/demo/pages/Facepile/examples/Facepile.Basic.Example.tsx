@@ -3,7 +3,8 @@ import {
   Dropdown,
   IDropdownOption,
   Facepile,
-  IFacepileProps
+  IFacepileProps,
+  PersonaSize
 } from '../../../../index';
 import { facepilePersonas } from './FacepileExampleData';
 
@@ -23,7 +24,8 @@ export class FacepileBasicExample extends React.Component<any, IFacepileBasicExa
   public render() {
     let { numberOfFaces } = this.state;
     let facepileProps: IFacepileProps = {
-      personas: facepilePersonas.slice(0, numberOfFaces)
+      personas: facepilePersonas.slice(0, numberOfFaces),
+      personaSize: PersonaSize.extraExtraSmall
     };
 
     return (

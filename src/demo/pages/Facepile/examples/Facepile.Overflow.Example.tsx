@@ -3,12 +3,14 @@ import {
   Dropdown,
   IDropdownOption,
   IFacepileProps,
-  Facepile
+  Facepile,
+  PersonaSize
 } from '../../../../index';
 import { facepilePersonas } from './FacepileExampleData';
 
 const facepileProps: IFacepileProps = {
-  personas: facepilePersonas
+  personas: facepilePersonas,
+  personaSize: PersonaSize.extraExtraSmall
 };
 
 export interface IFacepileOverflowExampleState {

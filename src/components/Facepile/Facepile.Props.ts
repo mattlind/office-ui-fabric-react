@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Facepile } from './Facepile';
-import { PersonaInitialsColor } from '../Persona/index';
+import { PersonaInitialsColor, PersonaSize } from '../Persona/index';
 
 export interface IFacepileProps extends React.Props<Facepile> {
   /**
@@ -15,11 +15,16 @@ export interface IFacepileProps extends React.Props<Facepile> {
   /** Maximum widthavailable to display in */
   availableWidth?: number;
 
+  /** Size to display the persona controls at */
+  personaSize?: PersonaSize;
+
   /** Show add person button */
   showAddButton?: boolean;
 
+  /** Background color to display the add user icon */
   addUserIconColor?: PersonaInitialsColor;
 
+  /** Background color of the overflow icon */
   overflowIconColor?: PersonaInitialsColor;
 
   onClickAddButton?: (ev?: React.MouseEvent) => void;

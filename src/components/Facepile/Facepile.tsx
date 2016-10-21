@@ -107,7 +107,7 @@ export class Facepile extends React.Component<IFacepileProps, {}> {
               imageUrl={ persona.imageUrl }
               initialsColor={ persona.initialsColor }
               primaryText={ persona.personaName }
-              size={ PersonaSize.extraSmall }
+              size={ this.props.personaSize }
               hidePersonaDetails={ personalDetailsHidden } />;
   }
 
