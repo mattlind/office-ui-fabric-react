@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "office-ui-fabric-react",
+      "comment": "Added automatic sizing of Facepile control to available horizontal space.",
+      "type": "minor"
+    }
+  ],
+  "email": "v-mattli@microsoft.com"
+}
