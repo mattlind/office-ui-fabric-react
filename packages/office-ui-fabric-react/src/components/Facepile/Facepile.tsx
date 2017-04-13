@@ -25,6 +25,8 @@ import {
 } from '../../Persona';
 import styles = require('./Facepile.scss');
 
+const MAX_OVERFLOW = 99;
+
 export class Facepile extends BaseComponent<IFacepileProps, {}> {
   public static defaultProps: IFacepileProps = {
     maxDisplayablePersonas: 5,
@@ -172,7 +174,9 @@ export class Facepile extends BaseComponent<IFacepileProps, {}> {
         hidePersonaDetails={ true }
         onRenderInitials={ () => {
           return (
-            <span>{ '+' + numPersonasNotPictured }</span>
+            <span>{ numPersonasNotPictured > MAX_OVERFLOW ?
+              MAX_OVERFLOW + '+' :
+              '+' + numPersonasNotPictured }</span>
           );
         } }
       />
